@@ -20,6 +20,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//utilizamos las rutas excepto la ruta show
 Route::resource('posts','Backend\PostController')
     ->middleware('auth')
     ->except('show');

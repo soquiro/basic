@@ -7,6 +7,16 @@
             @foreach($posts as $post)
             <div class="card mb-4">
                 <div class="card-body"> <!-- contenido de nuestros posts -->
+                    @if ($post->image)
+                    <img src="{{$post->get_image}}" class="card-img-top">
+                   
+                    @elseif ($post->iframe)
+                    <div class="embed-responsive embed-responsive-16by9">
+                        {!!$post->iframe!!}
+                    </div>
+                       
+                    @endif
+
                 <!-- aqui pondremos el titulo de nuestros posts -->   
                 <h5 class="card-title">{{$post->title}}</h5>
                 <!-- contenido de nuestros posts en un parrafo-->
